@@ -23,3 +23,21 @@ def caesar(start_text, shift_amount, cipher_direction):
             end_text += char
     print(f"Here's the {cipher_direction}d result: {end_text}")
 
+# Loop to interact with user
+should_end = False
+while not should_end:
+
+    # Collect user responses
+    direction = input("Type 'encode' to encrypt, type 'decode' to decrypt:\n")
+    text = input("Type your message:\n").lower()
+    shift = int(input("Type the shift number:\n"))
+    shift = shift % 26
+
+    # Run caesar function
+    caesar(start_text=text, shift_amount=shift, cipher_direction=direction)
+
+    # Check to see if user would like to continue
+    restart = input("Type 'yes' if you want to go again. Otherwise type 'no'.\n")
+    if restart == "no":
+        should_end = True
+        print("Goodbye")
